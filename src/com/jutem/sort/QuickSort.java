@@ -2,6 +2,8 @@ package com.jutem.sort;
 
 import java.util.Arrays;
 
+import com.jutem.util.Exchange;
+
 public class QuickSort {
 
 	/**
@@ -57,15 +59,11 @@ public class QuickSort {
 
 		int i=p-1;
 		for(int j=p;j<r;j++)
-			if(numbers[j]<=numbers[r]){
-				int temp=numbers[j];
-				numbers[j]=numbers[++i];
-				numbers[i]=temp;
-			}
-		int temp=numbers[r];
-		numbers[r]=numbers[++i];
-		numbers[i]=temp;
+			if(numbers[j]<=numbers[r])
+				Exchange.exchange(numbers, j, ++i);
 
+		Exchange.exchange(numbers, r, ++i);
+		
 		return i;
 	}
 	
@@ -73,35 +71,27 @@ public class QuickSort {
 	 * 7-2针对相同元素的快速排序
 	 * 算法平均时间复杂度要求r-p
 	 * 
-	 * 进行两次分割，分别产生result[0],result[1]两个下表
-	 * [result[0],result[1]]为相等元素
+	 * 进行两次分割，分别产生result[0],result[1]两个下标
+	 * [result[0],result[1]]区间为相等元素
 	 */
 	private static int[] PartitionForSameNumber(int[] numbers,int p,int r){
 		
 		int[] result=new int[2];
 		
 		int i=p-1;
-		for(int j=p;j<r;j++){
-			if(numbers[j]<numbers[r]){
-				int temp=numbers[j];
-				numbers[j]=numbers[++i];
-				numbers[i]=temp;
-			}
-		}
+		for(int j=p;j<r;j++)
+			if(numbers[j]<numbers[r])			
+				Exchange.exchange(numbers, j, ++i);
+		
 		result[0]=i+1;
 		
-		for(int j=i+1;j<r;j++){
-			if(numbers[j]==numbers[r]){
-				int temp=numbers[j];
-				numbers[j]=numbers[++i];
-				numbers[i]=temp;
-			}
-		}	
+		for(int j=i+1;j<r;j++)
+			if(numbers[j]==numbers[r])
+				Exchange.exchange(numbers, j, ++i);
+
 		result[1]=i+1;
 		
-		int temp=numbers[r];
-		numbers[r]=numbers[++i];
-		numbers[i]=temp;
+		Exchange.exchange(numbers, r, ++i);
 
 		System.out.println(Arrays.toString(numbers));
 		return result;
@@ -111,9 +101,7 @@ public class QuickSort {
 		//随机产生p-r中任意一个数
 		int i=(int)(Math.random()*(r-p+1))+p;
 		
-		int temp=numbers[r];
-		numbers[r]=numbers[i];
-		numbers[i]=temp;
+		Exchange.exchange(numbers, r, i);
 		
 		return Partition(numbers, p, r);
 	}
@@ -134,11 +122,8 @@ public class QuickSort {
 			do{j--;}while(numbers[j]>x);
 			do{i++;}while(numbers[i]<x);
 			
-			if(i<j){
-				int temp=numbers[i];
-				numbers[i]=numbers[j];
-				numbers[j]=temp;
-			}
+			if(i<j)
+				Exchange.exchange(numbers, i, j);
 			else
 				return j;
 		}

@@ -2,6 +2,8 @@ package com.jutem.practice;
 
 import java.util.Arrays;
 
+import com.jutem.util.Exchange;
+
 
 /**
  * 
@@ -56,19 +58,14 @@ public class RedAndBlueKettle {
 		int key=0; //用来保存于kettle相等水量的水壶下标
 		for(int j=p;j<=r;j++){
 
-			if(kettles[j]<kettle){
-				int temp=kettles[j];
-				kettles[j]=kettles[++i];
-				kettles[i]=temp;
-			}
-				
+			if(kettles[j]<kettle)
+				Exchange.exchange(kettles, j, ++i);
+			
 			if(kettles[j]==kettle)
 				key=j;
 		}
 		
-		int temp=kettles[key];
-		kettles[key]=kettles[++i];
-		kettles[i]=temp;
+		Exchange.exchange(kettles, key, ++i);
 		
 		return i;
 	}

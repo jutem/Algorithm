@@ -1,5 +1,7 @@
 package com.jutem.heap;
 
+import com.jutem.util.Exchange;
+
 public class Heapify {
 
 	public static void MaxHeapify(int[] numbers,int tag){
@@ -13,9 +15,7 @@ public class Heapify {
 			largest=right;
 
 		if(largest!=tag){
-			int temp=numbers[tag];
-			numbers[tag]=numbers[largest];
-			numbers[largest]=temp;
+			Exchange.exchange(numbers, tag, largest);
 			MaxHeapify(numbers,largest);
 		}
 	}
@@ -33,11 +33,7 @@ public class Heapify {
 				largest=right;
 
 			if(largest!=tag){
-
-				int temp=numbers[tag];
-				numbers[tag]=numbers[largest];
-				numbers[largest]=temp;
-
+				Exchange.exchange(numbers, tag, largest);
 				tag=largest;
 			}
 			else

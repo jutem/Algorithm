@@ -2,12 +2,17 @@ package com.jutem.heap;
 
 import java.util.Arrays;
 
+import com.jutem.util.Exchange;
+
 public class MaxPriorityQueue {
 
 	public static int Maximum(int[] numbers){
 		return numbers[0];
 	}
 
+	/**
+	 * 去掉并返回最大值
+	 */
 	public static int HeapExtractMax(int[] numbers){
 
 		int heapSize=0;
@@ -39,11 +44,7 @@ public class MaxPriorityQueue {
 		//(index-1)/2=index-1>>>1(位移操作)
 		while(index>0 && numbers[index-1>>>1]<numbers[index]){
 
-			int temp=numbers[index];
-			numbers[index]=numbers[index-1>>>1];
-			numbers[index-1>>>1]=temp;
-
-
+			Exchange.exchange(numbers, index, index-1>>>1);
 			index=index-1>>>1;
 		}
 	}
