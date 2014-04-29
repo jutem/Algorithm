@@ -7,7 +7,21 @@ public class RandomizedSelectTest {
 	@Test
 	public void RandomizedSelectWithPartitionTest(){
 		
-		int n=RandomizedSelect.RandomizedSelectWithPartition(numbers, 0, numbers.length-1, 2);
+		int n=RandomizedSelect.RandomizedSelectWithPartition(numbers, 0, numbers.length-1, 6);
+		System.out.println(n);
+	}
+	
+	@Test
+	public void OtherRandomizedSelectWithPartitionTest(){
+		 
+		int n=RandomizedSelect.OtherRandomizedSelectWithPartition(numbers, 0, numbers.length-1, 7);
+		System.out.println(n);
+	}
+	
+	@Test 
+	public void MedianSelect(){
+		
+		int n=RandomizedSelect.MedianSelect(numbers,0,numbers.length-1,6);
 		System.out.println(n);
 	}
 	

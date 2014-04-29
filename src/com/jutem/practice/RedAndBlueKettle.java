@@ -1,7 +1,5 @@
 package com.jutem.practice;
 
-import java.util.Arrays;
-
 import com.jutem.util.Exchange;
 
 
