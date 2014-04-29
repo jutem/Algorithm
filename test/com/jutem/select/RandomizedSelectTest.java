@@ -21,7 +21,7 @@ public class RandomizedSelectTest {
 	@Test 
 	public void MedianSelect(){
 		
-		int n=RandomizedSelect.MedianSelect(numbers,0,numbers.length-1,6);
+		int n=RandomizedSelect.MedianSelect(numbers,0,numbers.length-1,1);
 		System.out.println(n);
 	}
 	

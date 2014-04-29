@@ -50,6 +50,10 @@ public class RandomizedSelect {
 			return 0;
 	}
 	
+	/**
+	 * 
+	 * @param i 为待查询的数组下标+1
+	 */
 	public static int MedianSelect(int[] numbers,int p,int r,int i){
 			
 		if(p==r)
@@ -59,9 +63,9 @@ public class RandomizedSelect {
 		if(q==i-1)
 			return numbers[q];
 		else if(q>i-1 && q-1>=0)
-			return OtherRandomizedSelectWithPartition(numbers, p, q-1, i);
+			return MedianSelect(numbers, p, q-1, i);
 		else if(q<i-1 && q+1<numbers.length)
-			return OtherRandomizedSelectWithPartition(numbers, q+1, r, i);
+			return MedianSelect(numbers, q+1, r, i);
 		else
 			return 0;
 	}
