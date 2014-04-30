@@ -7,7 +7,7 @@ public class RandomizedSelectTest {
 	@Test
 	public void RandomizedSelectWithPartitionTest(){
 		
-		int n=RandomizedSelect.RandomizedSelectWithPartition(numbers, 0, numbers.length-1, 6);
+		int n=RandomizedSelect.RandomizedSelectWithPartition(numbers, 3, numbers.length-1, 1);
 		System.out.println(n);
 	}
 	
@@ -21,9 +21,20 @@ public class RandomizedSelectTest {
 	@Test 
 	public void MedianSelect(){
 		
-		int n=RandomizedSelect.MedianSelect(numbers,0,numbers.length-1,1);
+		int n=RandomizedSelect.MedianSelect(numbers,5,14,10);
 		System.out.println(n);
 	}
 	
-	int[] numbers={5,2,4,6,1,3,9};
+	@Test 
+	public void getMedianTest(){
+		
+		int median=RandomizedSelect.getMedian(orignNumbers, 5, 14);
+		System.out.println(median);
+	}
+	
+	
+	
+	int[] numbers={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+	
+	int[] orignNumbers={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 }
