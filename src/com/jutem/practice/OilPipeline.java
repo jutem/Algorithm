@@ -41,7 +41,7 @@ public class OilPipeline {
 			i=ySet.length/2-1;
 		else
 			i=ySet.length/2;
-		int n=RandomizedSelect.MedianSelect(ySet, 0, ySet.length-1, i);
+		int n=RandomizedSelect.OtherRandomizedSelectWithPartition(ySet, 0, ySet.length-1, i);
 		System.out.println(Arrays.toString(points));
 		System.out.println("∆Ã…Ë‘⁄y="+n);
 	}
